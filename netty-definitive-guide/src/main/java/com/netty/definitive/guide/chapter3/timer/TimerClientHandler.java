@@ -1,28 +1,22 @@
-package com.netty.definitive.guide.chapter3;
+package com.netty.definitive.guide.chapter3.timer;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
  * @author dongzonglei
  * @description
- * @date 2019-04-17 10:45
+ * @date 2019-04-17 11:11
  */
-public class TimeClientHandler extends ChannelHandlerAdapter {
-
+public class TimerClientHandler extends ChannelInboundHandlerAdapter {
     private final ByteBuf firstMessage;
 
-    public TimeClientHandler() {
-        byte[] req = "QUERY TIME ORDER".getBytes();
-        firstMessage = Unpooled.buffer(req.length);
+    public TimerClientHandler() {
+        byte[] req = "abc\r\n".getBytes();
+        this.firstMessage = Unpooled.buffer(req.length);
         firstMessage.writeBytes(req);
-    }
-
-    @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        ctx.close();
     }
 
     @Override
@@ -36,6 +30,12 @@ public class TimeClientHandler extends ChannelHandlerAdapter {
         byte[] req = new byte[buf.readableBytes()];
         buf.readBytes(req);
         String body = new String(req, "UTF-8");
-        System.out.println("Now is : " + body);
+        System.out.println("now is :" + body);
+    }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        cause.printStackTrace();
+        ctx.close();
     }
 }
