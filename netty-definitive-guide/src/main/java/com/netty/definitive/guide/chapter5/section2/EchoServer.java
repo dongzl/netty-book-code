@@ -1,4 +1,4 @@
-package com.netty.definitive.guide.chapter5;
+package com.netty.definitive.guide.chapter5.section2;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;
@@ -11,6 +11,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import io.netty.handler.codec.FixedLengthFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
@@ -33,8 +34,7 @@ public class EchoServer {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
-                            ByteBuf delimiter = Unpooled.copiedBuffer("$_".getBytes());
-                            ch.pipeline().addLast(new DelimiterBasedFrameDecoder(1024, delimiter));
+                            ch.pipeline().addLast(new FixedLengthFrameDecoder(20));
                             ch.pipeline().addLast(new StringDecoder());
                             ch.pipeline().addLast(new EchoServerHandler());
                         }

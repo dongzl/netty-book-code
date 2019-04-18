@@ -1,4 +1,4 @@
-package com.netty.definitive.guide.chapter5;
+package com.netty.definitive.guide.chapter5.section1;
 
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerAdapter;

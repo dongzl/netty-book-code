@@ -1,4 +1,4 @@
-package com.netty.definitive.guide.chapter5;
+package com.netty.definitive.guide.chapter5.section2;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -22,10 +22,6 @@ public class EchoServerHandler extends ChannelHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        String body = (String)msg;
-        System.out.println("This is " + ++counter + " times receive client : [" + body + "]");
-        body += "$_";
-        ByteBuf echo = Unpooled.copiedBuffer(body.getBytes());
-        ctx.writeAndFlush(echo);
+        System.out.println("Receive client : [" + msg + "]");
     }
 }
