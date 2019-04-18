@@ -11,7 +11,7 @@
     <!-- 项目说明：这里作为聚合工程的父工程 -->
     <groupId>com.netty.book</groupId>
     <artifactId>netty-book-code</artifactId>
-    <version>1.0.0.SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <modules>
         <module>netty-definitive-guide</module>
