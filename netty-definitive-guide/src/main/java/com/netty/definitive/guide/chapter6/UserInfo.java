@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 
 /**
  * @author dongzonglei
- * @description
+ * @description 用户信息实体类
  * @date 2019-04-19 11:31
  */
 public class UserInfo implements Serializable {
