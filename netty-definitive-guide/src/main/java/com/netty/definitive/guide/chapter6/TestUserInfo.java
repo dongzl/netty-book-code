@@ -5,7 +5,7 @@ import java.io.ObjectOutputStream;
 
 /**
  * @author dongzonglei
- * @description
+ * @description 测试jdk序列化性能
  * @date 2019-04-19 11:35
  */
 public class TestUserInfo {
