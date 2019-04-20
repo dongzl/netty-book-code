@@ -17,7 +17,7 @@ import io.netty.handler.logging.LoggingHandler;
 
 /**
  * @author dongzonglei
- * @description
+ * @description echo 客户端
  * @date 2019-04-18 09:39
  */
 public class EchoClient {
