@@ -6,7 +6,7 @@ import java.nio.ByteBuffer;
 
 /**
  * @author dongzonglei
- * @description
+ * @description jdk序列化性能测试
  * @date 2019-04-19 11:41
  */
 public class PerformTestUserInfo {
