@@ -15,6 +15,7 @@
 
     <modules>
         <module>netty-definitive-guide</module>
+        <module>netty-code-self</module>
     </modules>
 
     <build>
